@@ -12,7 +12,6 @@ export default function Home() {
   // TODO(developer): Set to client ID and API key from the Developer Console
   const CLIENT_ID =
     "859456745871-36gaf9h7mi6cbbmmtk1sctl7oa0dvr1i.apps.googleusercontent.com";
-  const API_KEY = "AIzaSyCPww4PPnoiqE1TsHi5MC2Gdg78Xjwl68A";
 
   // Authorization scopes required by the API; multiple scopes can be
   // included, separated by spaces.
