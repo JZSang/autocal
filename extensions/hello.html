@@ -1,0 +1,95 @@
+<html>
+    <meta charset="UTF-8">
+<style>
+
+    .main,
+    .main input {
+        font-size: 16px;
+        line-height: 24px;
+        color: #353740;
+        font-family: Helvetica, sans-serif;
+    }
+    .main textarea {
+        margin-top: 12px;
+        margin-bottom: 12px;
+        font-size: 16px;
+        line-height: 24px;
+        color: #353740;
+        font-family: Helvetica, sans-serif;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+    }
+
+    .main .icon {
+        width: 34px;
+    }
+
+    .main h3 {
+        font-size: 32px;
+        line-height: 40px;
+        font-weight: bold;
+        color: #202123;
+        margin: 16px 0 40px;
+    }
+
+    .main form {
+        display: flex;
+        flex-direction: column;
+        width: 320px;
+    }
+    .main div {
+        display: flex;
+        flex-direction: column;
+        width: 320px;
+    }
+
+    .main input[type="text"] {
+        padding: 12px 16px;
+        border: 1px solid #10a37f;
+        border-radius: 4px;
+        margin-bottom: 24px;
+        outline-color: #10a37f;
+    }
+    .main textarea[type="text"] {
+        padding: 12px 16px;
+        border: 1px solid #10a37f;
+        border-radius: 4px;
+        margin-bottom: 24px;
+        outline-color: #10a37f;
+    }
+
+    .main ::placeholder {
+        color: #8e8ea0;
+        opacity: 1;
+    }
+
+    .main input[type="submit"] {
+        padding: 12px 0;
+        color: #fff;
+        background-color: #10a37f;
+        border: none;
+        border-radius: 4px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .main .result {
+        font-weight: bold;
+        margin-top: 40px;
+    }
+</style>
+<main class="main">
+    <div>
+
+        <textarea id="inputText" type="text" rows="5" placeholder="meet my friend tomorrow at 6pm for an hour, then cook for an hour after that"></textarea>
+        <input id="generate" type="submit" value="Generate event (⌘ ↩)" />
+    </div>
+    <p id="currentStateText"></p>
+</main>
+<script type="text/javascript" src="script.js"></script>
+</html>

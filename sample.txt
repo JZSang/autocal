@@ -1,0 +1,19 @@
+From the following text, generate a JSON event based on the Google Calendar's events API, assuming today's date is Sat Jan 14 2023 14:24:30 GMT-0500 (Eastern Standard Time).
+  If a location is provided, add a "location" entry.
+  If there are multiple events, create an array of events.
+  Under both "start" and "end" entries, set the IANA timezone based on the timezone previously provided using any viable city.
+  Always assume that the text's time is based on the timezone given in today's date.
+
+  "climbing tmrw at 12 pm"
+
+{
+    "summary": "climbing",
+    "start": {
+      "dateTime": "2023-01-15T12:00:00-05:00",
+      "timeZone": "America/New_York"
+    },
+    "end": {
+      "dateTime": "2023-01-15T13:00:00-05:00",
+      "timeZone": "America/New_York"
+    }
+}

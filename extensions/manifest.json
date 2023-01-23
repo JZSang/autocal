@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Calendar Assistant",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm0gypYGPOm/4zoomf2tC7gZ4mI6+G3UwpcLu3CYO8iNNq8cVbov5CkyIzU3eT5OMGIFFxOagUsRiTiTjBu2YdkO9brki95M440IjRYFVeOIe8Pf2mDTiQiB1J4mG5GQ2XZQyJ5uEyFkz1E35eOCzT5ObMF/rwq8llDuUyAAONgfK15iE1FK/s4NzGTwqO6OmkUtruhIU08P7WrEdjN4INQ5+LYH8XgwfQDXR1byX4M3jvxgKo1dZWAORguJzpeJPzlnTr8U/d6/gRajR6AGdQrl/I742dLXbuY8XWgbTvSupWYJrCiaW6AJsHeS1c354eaTTAUMhXEsCbE4jx1v8gwIDAQAB",
+  "description": "Tell your assistant to set something on the calendar",
+  "version": "1.1",
+  "action": {
+    "default_popup": "hello.html",
+    "default_icon": "hello_extensions.png"
+  },
+  "host_permissions": ["http://localhost:3000/", "https://7w2ceqy5d42omqxgmo4clujqaq0xsdwv.lambda-url.us-east-1.on.aws/"],
+  "oauth2": {
+    "client_id": "859456745871-u50k136pvh5rb77cvsjcm7a79vdj9t67.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/calendar.events"]
+  },
+  "permissions": ["identity"]
+}

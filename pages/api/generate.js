@@ -15,22 +15,29 @@ export default async function (req, res) {
     return;
   }
 
-  const animal = req.body.animal || '';
-  if (animal.trim().length === 0) {
+  const prompt = req.body.prompt || '';
+  if (prompt.trim().length === 0) {
     res.status(400).json({
       error: {
-        message: "Please enter a valid animal",
+        message: "Please enter a valid prompt",
       }
     });
     return;
   }
 
   try {
+    const text = generatePrompt(req.body.currentDate, prompt);
+    console.log(text);  
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: generatePrompt(animal),
-      temperature: 0.6,
+      prompt: text,
+      max_tokens: 500,
+      temperature: 0.69,
+      top_p: 1,
+      frequency_penalty: 0,
+      presence_penalty: 0,
     });
+    console.log(completion.data.choices[0].text)
     res.status(200).json({ result: completion.data.choices[0].text });
   } catch(error) {
     // Consider adjusting the error handling logic for your use case
@@ -48,15 +55,16 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(animal) {
-  const capitalizedAnimal =
-    animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Suggest three names for an animal that is a superhero.
+function generatePrompt(currentDate, prompt) {
+  return `
+  From the following text, generate a JSON event based on the Google Calendar's events API, assuming today's date is ${currentDate}. 
+  If a location is provided, add a "location" entry. 
+  If there are multiple events, create an array of events.
+  Under both "start" and "end" entries, set the IANA timezone based on the timezone previously provided using any viable city.
+  Always assume that the text's time is based on the timezone given in today's date.
 
-Animal: Cat
-Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-Animal: Dog
-Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-Animal: ${capitalizedAnimal}
-Names:`;
+  "${prompt}"
+  `;
+
+
 }
